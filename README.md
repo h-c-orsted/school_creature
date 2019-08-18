@@ -1,5 +1,5 @@
 # Creature walk
-### 28. august 2019
+### 20. august 2019
 Opgave, programmering
 ##### Rasmus Lauridsen, 2i
 
