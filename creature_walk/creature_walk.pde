@@ -12,10 +12,7 @@ float zoomFactor = 1.003;
 // Function to create x count of creatures depending on parameter
 void createCreatures(int count) {
   // Generate a new creature and insert into array
-  for (int i=0; i<count; i++) {
-    println(countCreatures);
-    println(creatures[0]);
-    
+  for (int i=0; i<count; i++) {    
     creatures[countCreatures][ballX] = round(random(50, 950));
     creatures[countCreatures][ballY] = round(random(50, 950));
     creatures[countCreatures][speedX] = round(random(-3, 3));
@@ -29,6 +26,7 @@ void createCreatures(int count) {
     creatures[countCreatures][ballSize] = 50;
     creatures[countCreatures][eyeSize] = 8;
     
+    // New creature added to array, count this one too
     countCreatures++;
   }
 }
@@ -46,11 +44,12 @@ void setup() {
 
 
 void draw() {  
-  
+  // Obviously, clear before drawing anything new 
   clear();
   
+  // Run through loop to handle each creature's walk path and update redraw said creature
   for (int i=0; i<countCreatures; i++) {
-    float ballwalk = sin(creatures[i][0]*0.5)*10;
+    float ballwalk = sin(creatures[i][0]*0.5)*10;    // Create jumping feature
     creatures[i][ballX] += creatures[i][speedX]; 
     creatures[i][ballY] += creatures[i][speedY] + ballwalk; 
     creatures[i][ballSize] *= zoomFactor;
@@ -67,6 +66,7 @@ void draw() {
 }
 
 
+// Create one more creature on mouse pressed
 void mousePressed() {
   createCreatures(1);
 }
